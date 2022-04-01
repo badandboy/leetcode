@@ -15,3 +15,18 @@ func InsertNode(root *TreeNode, val int, left bool) *TreeNode {
 	}
 	return root
 }
+
+//func createTree(nums []int) *TreeNode {
+//	if len(nums) <= 0 {
+//		return &TreeNode{}
+//	}
+//
+//	dummyNode := &TreeNode{}
+//	curr := dummyNode
+//	for _, val := range nums {
+//		if  {
+//
+//		}
+//		curr.Left = &TreeNode{Val: val}
+//	}
+//}
