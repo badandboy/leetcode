@@ -1,5 +1,7 @@
 package utils
 
+import "fmt"
+
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -16,17 +18,27 @@ func InsertNode(root *TreeNode, val int, left bool) *TreeNode {
 	return root
 }
 
-//func createTree(nums []int) *TreeNode {
-//	if len(nums) <= 0 {
-//		return &TreeNode{}
-//	}
-//
-//	dummyNode := &TreeNode{}
-//	curr := dummyNode
-//	for _, val := range nums {
-//		if  {
-//
-//		}
-//		curr.Left = &TreeNode{Val: val}
-//	}
-//}
+func CreateTree(nums []int, i int) *TreeNode {
+	if len(nums) <= 0 {
+		return &TreeNode{}
+	}
+
+	if i >= len(nums) || nums[i] == -1 {
+		return nil
+	}
+
+	p := &TreeNode{Val: nums[i]}
+	p.Left = CreateTree(nums, 2*i+1)
+	p.Right = CreateTree(nums, 2*i + 2)
+
+	return p
+
+}
+
+func PrintTree(tree *TreeNode)  {
+	if tree != nil {
+		fmt.Println(tree.Val)
+		PrintTree(tree.Left)
+		PrintTree(tree.Right)
+	}
+}
